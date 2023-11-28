@@ -25,7 +25,10 @@
                     "title": "Is this the first AGM?"
                 },
                 "prevAgmRefDate":{
-                    "type": "string",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
                     "format": "date",
                     "description": "Point of reference from which companies have 15 months to either file an AGM or request an extension.",
                     "examples": [
@@ -37,7 +40,10 @@
                     "title": "Has an extension been requested for this AGM year?"
                 },
                 "expireDateCurrExt": {
-                    "type": "string",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
                     "format": "date",
                     "description": "Date of expiration for current extension.",
                     "examples": [

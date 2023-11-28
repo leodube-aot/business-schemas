@@ -78,3 +78,31 @@ def test_validate_no_ext_req_for_agm_year():
     print(errors)
 
     assert not is_valid
+
+def test_validate_null_prev_agm_ref_date():
+    """Assert that prevAgmRefDate is allowed to be null."""
+    agm_extension = copy.deepcopy(AGM_EXTENSION)
+    ae_json = {'agmExtension': agm_extension}
+    ae_json['agmExtension']['prevAgmRefDate'] = None
+
+    is_valid, errors = validate(ae_json, 'agm_extension')
+
+    if errors:
+        for err in errors:
+            print(err.message)
+    print(errors)
+    assert is_valid
+
+def test_validate_null_expire_date_curr_ext():
+    """Assert that expireDateCurrExt is allowed to be null."""
+    agm_extension = copy.deepcopy(AGM_EXTENSION)
+    ae_json = {'agmExtension': agm_extension}
+    ae_json['agmExtension']['expireDateCurrExt'] = None
+
+    is_valid, errors = validate(ae_json, 'agm_extension')
+
+    if errors:
+        for err in errors:
+            print(err.message)
+    print(errors)
+    assert is_valid
